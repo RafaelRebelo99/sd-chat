@@ -59,7 +59,7 @@ export default function Chat({
   };
 
   return (
-    <div className="flex h-screen bg-slate-50 dark:bg-gray-900 overflow-hidden transition-colors duration-200">
+    <div className="flex h-dvh bg-slate-50 dark:bg-gray-900 overflow-hidden transition-colors duration-200">
 
       {/* Overlay (mobile) */}
       {sidebarAberta && (
@@ -192,7 +192,7 @@ export default function Chat({
             </div>
 
             {/* Input */}
-            <div className="flex-shrink-0 p-4 bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 transition-colors duration-200">
+            <div className="flex-shrink-0 px-4 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 transition-colors duration-200">
               <form onSubmit={handleEnviar} className="flex gap-2">
                 <input
                   type="text"
