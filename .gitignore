@@ -1,0 +1,25 @@
+# Dependências
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Build do cliente
+client/dist/
+client/.env.local
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+*.log
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
