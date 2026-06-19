@@ -55,7 +55,7 @@ export default function Login({ onEntrar, darkMode, toggleDarkMode }) {
           {/* Cabeçalho */}
           <div className="text-center mb-8">
             <h1 className="text-2xl font-bold text-blue-600 mb-1">
-              DistribuídoChat
+              SD Chat
             </h1>
             <p className="text-gray-400 dark:text-gray-500 text-sm">
               Join a workspace to start collaborating
