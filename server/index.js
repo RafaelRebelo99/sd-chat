@@ -15,7 +15,7 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
-const PORTA = 3001;
+const PORTA = process.env.PORT || 3001;
 const MAX_MENSAGENS_POR_SALA = 50;
 const MAX_LOGS = 100;
 
