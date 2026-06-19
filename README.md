@@ -1,6 +1,6 @@
-# DistribuídoChat — Message Broker em Sistemas Distribuídos
+# SD Chat — Message Broker em Sistemas Distribuídos
 
-Projeto académico para o **Instituto Piaget** que demonstra o padrão **Message Broker / Middleware** em Sistemas Distribuídos através de uma aplicação de chat em tempo real.
+Projeto académico para o **Instituto Piaget** para a disciplina Sistemas Distribúidos que demonstra o padrão **Message Broker / Middleware** em Sistemas Distribuídos através de uma aplicação de chat em tempo real.
 
 ---
 
@@ -177,3 +177,5 @@ SD_CHAT/
 | `sistema`               | Notificação de entrada/saída              |
 | `utilizadores_atualizados` | Lista de utilizadores online na sala    |
 | `broker_stats`          | Estatísticas e log de eventos em tempo real |
+
+*Realizado por :* Rafael Rebelo 
