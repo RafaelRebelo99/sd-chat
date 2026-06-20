@@ -25,7 +25,7 @@ function IconeLua() {
   );
 }
 
-export default function Login({ onEntrar, darkMode, toggleDarkMode }) {
+export default function Login({ onEntrar, conectando, darkMode, toggleDarkMode }) {
   const [username, setUsername] = useState('');
   const [sala, setSala] = useState('geral');
 
@@ -125,14 +125,27 @@ export default function Login({ onEntrar, darkMode, toggleDarkMode }) {
             {/* Botão entrar */}
             <button
               type="submit"
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4
-                         rounded-xl flex items-center justify-center gap-2 transition-colors"
+              disabled={conectando}
+              className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-70 disabled:cursor-not-allowed
+                         text-white font-medium py-3 px-4 rounded-xl flex items-center justify-center gap-2 transition-colors"
             >
-              Entrar
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                  d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-              </svg>
+              {conectando ? (
+                <>
+                  <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                  </svg>
+                  A ligar ao servidor...
+                </>
+              ) : (
+                <>
+                  Entrar
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                  </svg>
+                </>
+              )}
             </button>
           </form>
         </div>

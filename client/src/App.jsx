@@ -21,6 +21,8 @@ export default function App() {
   const wsRef = useRef(null);
 
   // Inicializar dark mode a partir de localStorage ou preferência do sistema
+  const [conectando, setConectando] = useState(false);
+
   const [darkMode, setDarkMode] = useState(() => {
     const guardado = localStorage.getItem('dc-darkmode');
     if (guardado !== null) return guardado === 'true';
@@ -40,11 +42,17 @@ export default function App() {
   }, []);
 
   const entrar = useCallback((username, sala) => {
+    // Impedir múltiplas conexões simultâneas
+    if (conectando) return;
+    wsRef.current?.close();
+    setConectando(true);
+
     const ws = new WebSocket(URL_BROKER);
     wsRef.current = ws;
 
     ws.onopen = () => {
       setConectado(true);
+      setConectando(false);
       ws.send(JSON.stringify({ tipo: 'entrar', username, sala }));
       setSessao({ username, sala });
     };
@@ -72,9 +80,9 @@ export default function App() {
       }
     };
 
-    ws.onclose = () => setConectado(false);
-    ws.onerror = () => setConectado(false);
-  }, []);
+    ws.onclose = () => { setConectado(false); setConectando(false); };
+    ws.onerror = () => { setConectado(false); setConectando(false); };
+  }, [conectando]);
 
   const enviarMensagem = useCallback((texto) => {
     if (wsRef.current?.readyState === WebSocket.OPEN) {
@@ -93,7 +101,7 @@ export default function App() {
   }, [sessao]);
 
   if (!sessao) {
-    return <Login onEntrar={entrar} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />;
+    return <Login onEntrar={entrar} conectando={conectando} darkMode={darkMode} toggleDarkMode={toggleDarkMode} />;
   }
 
   return (
