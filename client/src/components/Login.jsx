@@ -58,7 +58,7 @@ export default function Login({ onEntrar, conectando, darkMode, toggleDarkMode }
               SD Chat
             </h1>
             <p className="text-gray-400 dark:text-gray-500 text-sm">
-              Join a workspace to start collaborating
+              App Built by Rafael Rebelo
             </p>
           </div>
 
@@ -135,7 +135,7 @@ export default function Login({ onEntrar, conectando, darkMode, toggleDarkMode }
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
                   </svg>
-                  A ligar ao servidor...
+                  A entrar...
                 </>
               ) : (
                 <>
